@@ -8,7 +8,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
+
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/team/{id}', [\App\Http\Controllers\HomeController::class, 'teamSquads'])->name('team.squads');
+
 
 
 
