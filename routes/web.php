@@ -2,12 +2,18 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Sportmonks\Soccer\SoccerApi;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home',[\App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index']);
+
+
+
+
+
 
 
 
