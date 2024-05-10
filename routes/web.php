@@ -11,8 +11,8 @@ Route::get('/', function () {
 
 
 
-Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index']);
-Route::get('/team/{id}', [\App\Http\Controllers\HomeController::class, 'teamSquads'])->name('team.squads');
+Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/team/{id}', [\App\Http\Controllers\HomeController::class, 'teamSquad'])->name('team.squads');
 
 
 

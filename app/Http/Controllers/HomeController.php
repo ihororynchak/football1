@@ -9,6 +9,7 @@ use Sportmonks\Soccer\SoccerApi;
 class HomeController extends Controller
 {
     private $seasonId = 21644;
+
     public function index()
     {
         $teams = SoccerApi::teams()
@@ -24,22 +25,23 @@ class HomeController extends Controller
     }
 
 
-    public function teamSquads($id)
+    public function teamSquad($id)
     {
-//        $squad = SoccerApi::teamSquads()
-//            ->setIncludes(['player'])
-//            ->getByTeamAndSeason($id, $this->seasonId);
+        $squad = SoccerApi::teamSquads()
+            ->setIncludes(['player'])
+            ->getByTeamAndSeason($id, $this->seasonId);
+
 
         $team = SoccerApi::teams()
-            ->setIncludes(['country', 'trophies', 'rivals', 'squad', 'coach', 'transfers', 'sidelined', 'stats', 'venue', 'fifaranking', 'uefaranking', 'visitorFixtures', 'localFixtures', 'visitorResults', 'latest', 'upcoming', 'goalscorers', 'cardscorers', 'assistscorers', 'aggregatedGoalscorers', 'aggregatedCardscorers', 'aggregatedAssistscorers', 'league', 'activeSeasons'])
+            ->setIncludes(['country', 'trophies', 'rivals', 'coach', 'stats', 'venue', 'league', 'activeSeasons'])
             ->getById($id);
 
-        dd($team);
+//        dd($team->data, $squad->data);
 
 
-        return view('team', [
-            'team' => $team,
-
+        return view('teamSquad', [
+            'team' => $team->data,
+            'squad' => $squad->data,
         ]);
     }
 }
