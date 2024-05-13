@@ -36,8 +36,6 @@ class HomeController extends Controller
             ->setIncludes(['country', 'trophies', 'rivals', 'coach', 'stats', 'venue', 'league', 'activeSeasons'])
             ->getById($id);
 
-//        dd($team->data, $squad->data);
-
 
         return view('teamSquad', [
             'team' => $team->data,
